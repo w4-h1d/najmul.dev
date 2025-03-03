@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acme Co.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="images/sky.webp" as="image" type="image/webp">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style-mini.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <!--####################### HEADER ######################-->
+    <div data-page-top></div>
+    <header class="header-bg center fixed-header" data-header>
+        <div class="max-width header">
+            <a href="/"><img src="images/logo-color.png" alt="Acme Co. Logo" width="350" height="100" class="logo" data-main-logo></a>
+
+            <button type="button" class="mobile-menu" data-open-menu>
+                <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="20" y="22" width="13" height="2" fill="#1B2938"/>
+                    <rect x="13" y="22" width="5" height="2" fill="#F26628"/>
+                    <rect x="13" y="17" width="20" height="2" fill="#1D1D1D"/>
+                    <rect x="13" y="27" width="20" height="2" fill="#1B2938"/>
+                    </svg>
+            </button>
+            
+            <nav class="nav" data-navigation>
+                <button type="button" class="close-menu center" data-close-menu>&times;</button>
+                <ul class="nav-ul">
+                    <li><a href="#" data-menu-opt>Home</a></li>
+                    <!-- <li><a href="#" data-menu-opt>Blog</a></li> -->
+                    <li><a href="#events" data-menu-opt>Event</a></li>
+                    <li><a href="#donate" data-menu-opt>Donate</a></li>
+                    <li><a href="#about" data-menu-opt>About</a></li>
+                    <li><a href="#contact" data-menu-opt>Contact</a></li>
+                    <li><a href="#visit" class="action-link-1" data-menu-opt>Visit Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!--####################### MAIN ######################-->
+
+    <main>
+        <section class="hero center">
+            <h1 class="hero-h1">As for the sky, He raised it high, and set the balance of justice</h1>
+            <p class="hero-p">Surah Ar-Rahman (55:7)</p>
+            <a href="#" class="action-link-2">Read More</a>
+        </section>
+
+        <section class="worship-bg center">
+            <div class="max-width worship">
+                <article class="center worship-article">
+                    <div class="icon"><i class="fa-solid fa-mosque"></i></div>
+                    <h3 class="worship-article-h3">Salah</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+                </article>
+    
+                <article class="center worship-article">
+                    <div class="icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                    <h3 class="worship-article-h3">Zakat</h3>
+                    <p>Unde ipsa, expedita cupiditate numquam dolor dolorum autem</p>
+                </article>
+    
+                <article class="center worship-article">
+                    <div class="icon"><i class="fa-solid fa-bowl-food"></i></div>
+                    <h3 class="worship-article-h3">Fasting</h3>
+                    <p>Recusandae, beatae. Praesentium tempora ipsa, fuga animi sapiente eum.</p>
+                </article>
+    
+                <article class="center worship-article">
+                    <div class="icon"><i class="fa-solid fa-kaaba"></i></div>
+                    <h3 class="worship-article-h3">Hajj</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="about-bg center">
+            <div id="about"  class="scroll-point"></div>
+            <div class="max-width">
+                <div class="about">
+                    <p class="article-h2-p">About</p>
+                    <h2 class="article-h2">Our Center</h2>
+                    <p class="small worship-article-p">Established in 1987 to serve people who are in need of funds or education. We are developing dolor sit amet. Click edit button to change this text. I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,Consectetur adipiscing elit.</p>
+                    <a href="#" class="action-link-2">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-bg center">
+            <div id="visit" class="scroll-point"></div>
+            <div class="max-width services center">
+                <p class="article-h2-p">Serving Humanity</p>
+                <h2 class="article-h2">Our Services</h2>
+                
+                <div class="service-div center">
+                    <p class="blue bold text-center service-desc">We're on a <span class="orange">mission</span> to solve the problems and gain resources for a new generation.</p>
+
+                    <div class="service-articles">
+                        <article class="service-article">
+                            <div class="service-icon center blue">
+                                <i class="fa-solid fa-book-quran"></i>
+                            </div>
+                            <div class="service-article-text">
+                                <h3 class="orange">Quran Learning</h3>
+                                <p class="small">Quran Teaching dolor sit amet, coteudtur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+                            </div>
+                        </article>
+    
+                        <article class="service-article">
+                            <div class="service-icon center blue">
+                                <i class="fa-solid fa-hand-holding-heart"></i>
+                            </div>
+                            <div class="service-article-text">
+                                <h3 class="orange">Charity Service</h3>
+                                <p class="small">Charity Events dolor sit amet, coteudtur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+                            </div>
+                        </article>
+    
+                        <article class="service-article">
+                            <div class="service-icon center blue">
+                                <i class="fa-solid fa-mosque"></i>
+                            </div>
+                            <div class="service-article-text">
+                                <h3 class="orange">Mosque Development</h3>
+                                <p class="small">Mosque Renovation dolor sit amet, coteudtur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+                            </div>
+                        </article>
+    
+                        <article class="service-article">
+                            <div class="service-icon center blue">
+                                <i class="fa-solid fa-handshake-simple"></i>
+                            </div>
+                            <div class="service-article-text">
+                                <h3 class="orange">Help Poors</h3>
+                                <p class="small">Help Your fellows dolor sit amet, coteudtur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="donate-bg center">
+            <div class="donate-bg-color"></div>
+            <div id="donate" class="scroll-point"></div>
+            <div class="max-width center donate">
+                <p class="article-h2-p"><span class="white">Support Us,</span></p>
+                <h2 class="article-h2" style="--border-color: #fff;"><span class="blue">We need your help.</span></h2>
+                <p class="white margin-top-bottom">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis officiis eaque non itaque dolorem consectetur saepe accusamus sint, minus debitis inventore, aliquid cum culpa fugiat accusantium ex odio! Officiis, voluptates.</p>
+                <div class="donuts center">
+                    <div class="donut center"  style="--percentage: 46%;">
+                        <div class="percentage center bold blue text-center">46%<br>Mosque</div>
+                    </div>
+                    <div class="donut center"  style="--percentage: 56%;">
+                        <div class="percentage center bold blue text-center">56%<br>Expenses</div>
+                    </div>
+                    <div class="donut center"  style="--percentage: 75%;">
+                        <div class="percentage center bold blue text-center">75%<br>Feed Hungry</div>
+                    </div>
+                </div>
+                <a href="" class="action-link-1 bold">Donate Now</a>
+            </div>
+        </section>
+
+        <section class="experts-bg center">
+            <div class="max-width center experts">
+                <p class="article-h2-p">Our Expert</p>
+                <h2 class="article-h2">Islamic Scholars</h2>
+                <p class="p max-500">Experts ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos aspernatur inventore maiores eos dicta maxime, similique iste sequi facilis hic.</p>
+
+                <div class="scholars">
+                    <article class="scholar">
+                            <div class="scholar-info center">
+                                <h3 class="scholar-name orange">Sheikh Salim Suleman</h3>
+                                <p class="scholar-desc white small">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                            <img src="images/gatto.jpeg" loading="lazy" alt="" class="scholar-img">
+                    </article>
+
+                    <article class="scholar">
+                            <div class="scholar-info center">
+                                <h3 class="scholar-name orange">Sheikh Jabbar Uddin</h3>
+                                <p class="scholar-desc white small">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                            <img src="images/cool.jpg" loading="lazy" alt="" class="scholar-img">
+                    </article>
+
+                    <article class="scholar">
+                            <div class="scholar-info center">
+                                <h3 class="scholar-name orange">Sheikh Hasan Faloodi</h3>
+                                <p class="scholar-desc white small">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                            <img src="images/hijabi.jpg" loading="lazy" alt="" class="scholar-img">
+                    </article> 
+                </div>
+            </div>
+        </section>
+
+        
+
+        <section  class="events-bg center">
+            <div id="events" class="scroll-point"></div>
+            <div class="events-bg-color"></div>
+            <div class="max-width events">
+                <h2 class="article-h2"><span class="blue">Upcoming</span> Events</h2>
+                <p>There are a bunch of events coming up!</p>
+
+                <div class="event-articles">
+                    <article class="card">
+                        <a href="">
+                            <div class="card-img">
+                                <img src="https://plus.unsplash.com/premium_photo-1668024966086-bd66ba04262f?q=80&w=892&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" width="509"  loading="lazy" class="event-photo">
+                            </div>
+                            <h3  class="blue event-h3">Islamic Teaching Event</h3>
+                        
+                            <p class="small orange"><time datetime="2024-10-07">07/10/2024</time></p>
+                            <p class="small p"><time datetime="00:00">12:00 AM</time> to <time datetime="14:00">2:00 PM</time></p>
+                            <address class="small p">Central Mosque, New Town, Saham</address>
+                        </a>
+                    </article>
+    
+                    <article class="card">
+                        <a href="">
+                            <div class="card-img">
+                                <img src="https://images.unsplash.com/photo-1614586125858-e695dd97d1b6?q=80&w=903&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" width="509"  loading="lazy" class="event-photo">
+                            </div>
+                            <h3 class="blue event-h3">Islamic Teaching Event</h3>
+                        
+                            <p class="small orange"><time datetime="2024-10-10">10/10/2024</time></p>
+                            <p class="small p"><time datetime="00:00">12:00 AM</time> to <time datetime="14:00">2:00 PM</time></p>
+                            <address class="small p">Central Mosque, New Town, Saham</address>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="donator-bg center">
+            <div class="max-width donator">
+                <p class="article-h2-p">What Our</p>
+                <h2 class="article-h2">Donator Say</h2>
+
+                <div class="comment center">
+                    <div class="profile">
+                        <img src="images/abu.webp" alt="" width="300" height="400" loading="lazy" class="profile-img">
+                    </div>
+                    <h3 class="article-h2-p">ABU HASSAM ADAM</h3>
+                    <p><q class="quote">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed repellendus quidem ut. Placeat corporis ab similique illum at aut impedit.</q></p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="newsletter-bg center">
+            <div class="newsletter-bg-color"></div>
+            <div class="newsletter">
+                <h2 class="newsletter-h2">Newsletter</h2>
+                <p>Subscribe to our mailing list</p>
+
+                <form action="https://formspree.io/f/mqakeebr" method="post" class="form">
+                    <input type="email" name="email" placeholder="Enter your email" required class="form-input">
+                    <button class="form-submit">SIGN UP</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+
+
+    <!--####################### FOOTER ######################-->
+    
+    <footer class="footer center">
+        <div class="max-width">
+            <div class="footer-main">
+                <div class="footer-logo">
+                    <a href="/"><img src="images/logo.png" alt="Acme Co. Logo" width="350" height="100" class="logo" loading="lazy"></a>
+                    <p class="small">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut incidunt illum qui rem consequatur dolor dicta molestiae ipsam maxime voluptas suscipit.</p>
+        
+                </div>
+        
+                <div class="footer-links">
+                    <section class="footer-links-section">
+                        <h4 class="footer-h4">Quick Links</h4>
+                        <ul  class="small footer-ul">
+                            <li><a href="">About Us</a></li>
+                            <li><a href="">Product Category</a></li>
+                            <li><a href="">Our Products</a></li>
+                            <li><a href="">How we do it</a></li>
+                        </ul>
+                    </section>
+            
+                    <section class="footer-links-section">
+                        <h4 class="footer-h4">Useful Links</h4>
+                        <ul class="small footer-ul">
+                            <li><a href="">Contact Us</a></li>
+                            <li><a href="">Terms & Conditions</a></li>
+                            <li><a href="">Privacy Policy</a></li>
+                            <li><a href="">Cookies Policy</a></li>
+                        </ul>
+                    </section>
+            
+                    <section class="footer-links-section" id="contact">
+                        <h4 class="footer-h4">Contact Us</h4>
+                        <ul class="small footer-ul">
+                            <li><address><i class="fa-solid fa-location-dot"></i>&emsp;Saham, North Al Batinah</address></li>
+                            <li><address><i class="fa-solid fa-phone"></i>&emsp;+968 7171 7070</address></li>
+                            <li><address><i class="fa-solid fa-envelope"></i>&emsp;<a href="mailto:contact@najmul.dev">contact@najmul.dev</a></address></li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+    
+            <div class="copy-n-social">
+                <p class="small">&copy; Copyright 2025. All Rights Reserved.</p>
+                <ul class="socials">
+                    <li><a href="#"><i class="fa-brands fa-square-x-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-square-pinterest"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-square-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-square-youtube"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
