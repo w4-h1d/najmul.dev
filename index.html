@@ -6,6 +6,20 @@
     <title>Najmul Huda</title>
     <script src="js/particles.js"></script>
     <style>
+        @property --angle {
+            syntax: "<angle>";
+            inherits: false;
+            initial-value: 212deg;
+        }
+        @keyframes rotation {
+            0% {
+                --angle: 0deg;
+            }
+            100% {
+                --angle: 360deg;
+            }
+            
+        }
         * {
             margin: 0;
             padding: 0;
@@ -17,10 +31,11 @@
             height: 100%;
         }
         body {
-            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+            background: radial-gradient(ellipse at bottom, hsl(var(--angle), 33%, 16%) 0%, #090A0F 100%);
             width: 100%;
             height: 100vh;
             overflow-y: clip;
+            animation: rotation 20s linear infinite;
         }
     </style>
 </head>
@@ -46,7 +61,7 @@
        font-weight: 100;
        font-size: 2.5rem;
     ">
-        Coming Soon!<br><br>najmul.dev
+        Coming Soon!
     </div>
 </body>
 </html>
