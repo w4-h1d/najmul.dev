@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <script src="/js/particles.js"></script>
+
+    <style>
+        @property --inner-color {
+            syntax: "<color>";
+            inherits: false;
+            initial-value: oklch(0.29 0.1175 282.02);
+        }
+
+        @property --outer-color {
+            syntax: "<color>";
+            inherits: false;
+            initial-value: oklch(15.09% 0.0109 276.17);
+        }
+
+
+        @property --inner-per {
+            syntax: "<percentage>";
+            inherits: false;
+            initial-value: 0%;
+        }
+
+        @property --outer-per {
+            syntax: "<percentage>";
+            inherits: false;
+            initial-value: 100%;
+        }
+
+        @keyframes background-gradient {
+
+            0% {
+                --inner-color: oklch(0.82 0.0801 234.09);
+                --outer-color: oklch(0.5 0.0963 238.86);
+
+                --inner-per: 50%;
+                --outer-per: 100%;
+            }
+
+            65% {
+                --inner-color: oklch(60.17% 0.1239 38.46);
+                --outer-color: oklch(0.5 0.1027 12.48);
+
+                --inner-per: 0%;
+                --outer-per: 100%;
+            }
+
+            80% {
+                --inner-color: oklch(60.17% 0.1839 38.46);
+                --outer-color: oklch(15.09% 0.0109 276.17);
+
+                --inner-per: 0%;
+                --outer-per: 100%;
+            }
+
+            100% {
+                --inner-color: oklch(0.29 0.1175 282.02);
+                --outer-color: oklch(15.09% 0.0109 276.17);
+
+                --inner-per: 0%;
+                --outer-per: 100%;
+            }
+
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            /* background: radial-gradient(ellipse at bottom,  oklch(0.29 0.1175 282.02) 0%,  oklch(15.09% 0.0109 276.17) 100%);
+
+            background: radial-gradient(ellipse at bottom, oklch(var(--light1) var(--chroma1) var(--hue1)) 0%, oklch(var(--light2) var(--chroma2) var(--hue2)) 100%); */
+
+            background: radial-gradient(ellipse at bottom, var(--inner-color) 0%, var(--outer-color) 100%);
+
+            
+            color: #fff;
+            min-height: 100vh;
+            animation: background-gradient 3s linear forwards;
+        }
+
+        .sun {
+            width: min(30vh, 30vw);
+            height: min(30vh, 30vw);
+            border-radius: 50%;
+            position: relative;
+            
+            z-index: 2;
+        }
+        .sun:before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 50vw -15vh 0px 0px #fcf7b9;
+            animation: moon ease-out 3.25s forwards;
+            z-index: 0;
+            margin-left: 25px;
+            margin-top: -25px;
+        }
+        @keyframes moon {
+            0% {
+                box-shadow: 50vw -15vh 0px 0px #fcf7b9;
+            }
+            100% {
+                box-shadow: -25px 25px 0px 0px oklch(0.89 0 0);
+            }
+        }
+
+        @keyframes transparency {
+            0% {
+                background: #fefefe;
+                
+            }
+            100% {
+                background: transparent;
+                
+            }
+        }
+
+        main {
+            padding: 1rem;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .eid-greeting {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 75vh;
+            gap: 0.5rem;
+            
+        }
+
+        .eid-text {
+            font-size: 3rem;
+            opacity: 0;
+            animation: fade-in 1s 2.75s forwards;
+        }
+
+        p {
+            font-size: 1.25rem;
+            opacity: 0;
+            animation: fade-in 1s 3.5s forwards;
+        }
+        
+        .footer-text {
+            width: 100%;
+            padding: 1rem;
+            font-size: 0.85rem;
+            opacity: 1;
+            animation: none;
+        }
+
+        .text-center {
+            text-align: center;
+            
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        a {
+            font: inherit;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        @media screen and (max-width: 480px) {
+            .eid-text {
+                font-size: 2.25rem;
+            }
+        }
+
+        .particles-js {
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js" class="particles-js"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+            particlesJS.load('particles-js', '/js/particles.json');
+        });
+    </script>
+
+    <main>
+        <section class="eid-greeting">
+            <div class="sun"></div>
+            <h1 class="eid-text">Eid<br>Mubarak</h1>
+        </section>
+        
+        <p class="text-center ">May Allah accept (good deeds) from you and us.</p>
+    </main>
+
+    <footer>
+        <p class="footer-text text-center">© 2025 <a href="/">Najmul Huda</a>. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
