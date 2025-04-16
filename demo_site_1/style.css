@@ -41,6 +41,9 @@ html {
     line-height: 1.6;
     background-color: #222;
     font-size: 1rem;
+
+    scroll-snap-type: y proximity;
+    scroll-padding-top: calc(58px + 2rem);
 }
 
 body {
@@ -48,6 +51,10 @@ body {
     cursor: default;
 }
 
+
+.snap, footer {
+    scroll-snap-align: start;
+}
 
 a:hover {
     color: #F26628;
@@ -750,6 +757,9 @@ a:hover {
 }
 
 @media screen and (max-width: 992px) {
+    html {
+        scroll-padding-top: calc(50px + 2rem);
+    }
     .footer-logo {
         max-width: 100%;
     }
@@ -836,6 +846,11 @@ a:hover {
 }
 
 @media screen and (max-width: 768px) {
+    html {
+        scroll-snap-type: y proximity;
+        scroll-padding-top: 0;
+    }
+
     .footer-links-section {
         width: 100%;
     }
@@ -901,6 +916,11 @@ a:hover {
 }
 
 @media screen and (max-height: 576px) {
+    html {
+        scroll-snap-type: y proximity;
+        scroll-padding-top: 0;
+    }
+
     .fixed-header {
         position: relative;
     }
