@@ -19,6 +19,14 @@
 
 @font-face {
     font-family: 'inter';
+    src: url('/fonts/inter-medium-webfont.woff2') format('woff2'),
+         url('/fonts/inter-medium-webfont.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'inter';
     src: url('/fonts/inter-bold-webfont.woff2') format('woff2'),
          url('/fonts/inter-bold-webfont.woff') format('woff');
     font-weight: 700;
@@ -49,20 +57,39 @@ img {
     --html-bg: oklch(13% 0.028 261.692);
     --bg-grad-center: oklch(28.2% 0.065 267.935);
     --bg-grad-edges: oklch(13% 0.028 261.692);
+    --bg-gradient: radial-gradient(ellipse at bottom, var(--bg-grad-center) 0%, var(--bg-grad-edges) 100%);
     --font-color: oklch(92.3% 0.003 50);
+    --font-color2: oklch(78.3% 0.003 50);
     --selection-bg: oklch(96.8% 0.007 247.896);
     --selection-color: oklch(12.9% 0.042 264.695);
     --border-color: rgba(255, 255, 255, 0.15);
+    --profile-outline: var(--font-color);
+    --h2-bg: oklch(0.29 0.055 267.935);
+    --h2-color: oklch(from var(--font-color) calc(l - 0.05) c h);
 
     --glassy-bg: hsla(0, 0%, 100%, 0.025);
-    --glassy-shadow-col: rgba(0, 0, 0, 0.1);
+    --glassy-shadow-col: rgba(0, 0, 0, 0.25);
+    --glassy-hover: hsl(from var(--glassy-bg) h s l / 0.1);
+    --glassy-active: hsl(from var(--glassy-bg) h s l / 0.05);
 }
 /*END OF COLOR variables */
 
 :root:has([data-theme="light"]) {
-    --font-color: #262626;
-    --bg-grad-center: #fffef5;
-    --bg-grad-edges: #8F8F8F;
+    --font-color: oklch(27% 0 0);
+    --font-color2: oklch(42% 0 0);
+    --bg-grad-center: oklch(97% 0.014 254.604);
+    --bg-grad-edges: oklch(88.2% 0.059 254.128);
+    --html-bg: var(--bg-grad-center);
+    --bg-gradient: radial-gradient(ellipse at center, var(--bg-grad-center) 50%, var(--bg-grad-edges) 140%);
+    --border-color: #26262680;
+    --selection-color: var(--bg-grad-center);
+    --selection-bg: oklch(12.9% 0.042 264.695);
+    --h2-bg: oklch(91% 0.035 254.604);
+
+    --glassy-bg: hsla(0, 0%, 100%, 0.15);
+    --glassy-shadow-col: rgba(0, 0, 0, 0.2);
+    --glassy-hover: oklch(from var(--h2-bg) calc(l - 0.1) calc(c - 0.01) h / 0.5);
+    --glassy-active: hsl(from var(--glassy-bg) h s l / 0.05);
 }
 
 /* UTILITY CLASSES [Re-Usable Classes]*/
@@ -71,26 +98,39 @@ img {
     top: 0;
     left: -1000px;
 }
+
 .glassy {
     border: 1px solid var(--border-color);
     backdrop-filter: blur(2px);
     background-color: var(--glassy-bg);
-    box-shadow: 0 4px 30px var(--glassy-shadow-col);
-    transition: background-color 0.35s;
+    box-shadow: 0px 4px 5px var(--glassy-shadow-col);
+    transition: background-color 0.35s, box-shadow 0.35s, transform 0.35s;
+    transform: translateY(0) translateZ(0);;
 }
 
+
 .glassy:hover {
-    background-color: hsl(from var(--glassy-bg) h s l / 0.1);
+    background-color: var(--glassy-hover);
 }
 
 .glassy:active {
-    background-color: hsl(from var(--glassy-bg) h s l / 0.05);
+    background-color: var(--glassy-active);
+    box-shadow: 0px 0px 5px var(--glassy-shadow-col);
+    transform: translateY(4px);
 }
 
 .flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.nowrap {
+    text-wrap: nowrap;
+}
+
+.f2 {
+    color: var(--font-color2);
 }
 /* END OF UTILITY CLASSES */
 
@@ -105,18 +145,18 @@ html {
 }
 
 body {
-    background: radial-gradient(ellipse at bottom, var(--bg-grad-center) 0%, var(--bg-grad-edges) 100%);
+    background: var(--bg-gradient);
     color: var(--font-color);
-    width: 100%;
     min-height: 100svh;
     position: relative;
- 
+    transition: color 0.5s, background-color 1s;
 }
 
 button {
     background: transparent;
     color: inherit;
     border: none;
+    cursor: pointer;
 }
 
 button:active {
@@ -189,14 +229,14 @@ header, main, footer {
 .theme-btn {
     display: grid;
     grid-template-areas: "icon";
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     place-items: center;
 }
 
 .theme-btn img {
-    width: 65%;
-    height: 65%;
+    width: 45%;
+    height: 45%;
     transition: transform 0.5s;
 }
 
@@ -257,6 +297,10 @@ nav > .theme-btn {
     .footer {
         justify-content: center;
     }
+
+    .socials {
+        margin-right: 0;
+    }
 }
 
 footer p {
@@ -268,11 +312,13 @@ footer p {
     display: flex;
     gap: 0.5rem;
     align-items: center;
+    margin-right: -0.5rem;
 }
 
 .socials > a {
     padding: 0.5rem;
 }
+
 
 .socials svg {
     display: block;
@@ -296,13 +342,41 @@ footer p {
 /* END OF Particle.js CSS*/
 
 
+.hero {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 1rem;
+    max-width: 60ch;
+    margin: 10vh auto;
+    text-wrap: pretty;
+    place-items: center start;
+
+}
+
+.hero__title > h1 {
+    font-size: 1.25rem;
+}
+
+.hero__title > p:before {
+    content: "📍";
+    margin-right: 0.5rem;
+}
+
+.hero__title > p {
+    font-size: 0.8rem;
+}
+
 .profile-container {
     width: 60px;
     height: 60px;
     border-radius: 50%;
     overflow: hidden;
-    border: 5px solid #fff;
+    border: 5px solid var(--profile-outline); 
     box-sizing: content-box;
+}
+
+.hero__desc {
+    grid-column: 1 / span 2;
 }
 
 .wave {
@@ -319,14 +393,12 @@ footer p {
 
 
 
-
-
 .tech {  
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     place-content: center;
-    margin: 2rem 0;
+    margin: 4rem 0;
 }
 
 a:has(.stack-icon) {
@@ -364,14 +436,101 @@ a:has(.stack-icon) {
     transform: scale(0.95); 
 }
 
-.stack-icon.flask img {
+/* .stack-icon.flask img {
     filter: contrast(0.35);   
 }
 
 .stack-icon.flask:hover img {
     filter: contrast(1);     
+} */
+
+h2 {
+    font-size: 1rem;
+    background-color: var(--h2-bg);
+    color: var(--h2-color);
+    padding: 0.5rem 0.75rem;
+    border-radius: 5px;
+    font-weight: 500;
+    width: fit-content;
 }
 
+.project-cards {
+    margin: 4rem 0;
+}
+
+a:hover:has(> .card) {
+    opacity: 1;
+}
+
+
+.project-cards > a:has(> .card) {
+    display: block;
+    container: card / inline-size;
+    margin: 1.25rem 0;
+}
+
+.project-cards > a:not(a:has(> .card))::after {
+    content: "→";
+    margin-left: 1ch;
+    display: inline-block;
+    transition: transform 0.35s;
+}
+
+.project-cards > a:not(a:has(> .card)):hover::after {
+    transform: translateX(1ch);
+}
+
+.card {
+    display: flex;
+    gap: 1rem;
+    padding: 0.75rem;
+    border-radius: 10px;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+
+
+.card-img-div {
+    border: inherit;
+    object-fit: cover;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 250px;
+}
+
+.card img {
+    transition: transform 0.35s;
+}
+
+.card:hover img {
+    transform: scale(1.025);
+}
+
+.card-texts {
+    flex: 1 1 60%;
+}
+
+.card-texts > h3 {
+    font-size: 1rem;
+
+    margin-bottom: 0.25rem;
+}
+.card-texts > p {
+    font-size: 0.9rem;
+    color: oklch(from var(--font-color2) calc(l - 0.05) c h);
+    /* text-wrap: pretty; */
+}
+
+@container card (width < 576px) {
+    .card {
+        flex-flow: column;
+        gap: 0.5rem;
+    }
+    .card-img-div {
+        width: 100%;
+    }
+}
 
 @keyframes waving-hover {
     0% {
@@ -391,18 +550,41 @@ a:has(.stack-icon) {
     }
 }
 
-@media screen and (width <= 992px) {
+@media screen and (width < 576px) {
+    :root {
+        --glassy-bg: oklch(0.22 0.04 264.93 / 90%);
+        --glassy-hover: hsl(from var(--glassy-bg) h s l / 0.1);
+        --glassy-active: hsl(from var(--glassy-bg) h s l / 0.05);
+    }
+    
+    :root:has([data-theme="light"]) {
+        --glassy-bg: oklch(97% 0.014 254.604 / 90%);
+    }
+
     .mobile { display: none; }
+
+    .glassy {
+        border: 1px solid var(--border-color);
+        backdrop-filter: none;
+        background-color: var(--glassy-bg);
+        box-shadow: 0px 4px 5px var(--glassy-shadow-col);
+        transition: background-color 0.35s, box-shadow 0.35s, transform 0.35s;
+        transform: translateY(0) translateZ(0);;
+    }
+    /* .particles-js {
+        height: 100svh;
+    } */
 }
 
-@media screen and (width < 864px) {
+@media screen and (width < 880px) {
     .tech {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 0.5rem;
     }
     .stack-icon {
-        width: calc((100vw - 3.5rem) / 4);
+        /* width: calc((100vw - 3.5rem) / 4); */
+        width: 100%;
         padding: 5px;
     }
     .stack-icon p {

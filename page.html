@@ -32,9 +32,9 @@
                 
         <nav>
             <ul> 
-                <li><a href="">Blog</a></li>
-                <li><a href="">Projects</a></li>
-                <li><a href="">Services</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Services</a></li>
                 <li><button type="button"  class="theme-btn" data-theme="dark" onclick="switchTheme(this)">
                     <img src="img/theme-icon-dark.svg" alt="theme button dark icon" class="dark-icon">
                     <img src="img/theme-icon-light.svg" alt="theme button light icon" class="light-icon">
@@ -43,18 +43,14 @@
         </nav>
 
         <script>
-            const setTheme = localStorage.getItem("theme");
-            if (setTheme) {
-                const themeBtn = document.querySelector("[data-theme]");
-                themeBtn.dataset.theme = setTheme;
-            }
-
             const switchTheme = (element) => {
                 if (element.dataset.theme === "dark") {
                     element.dataset.theme = "light";
+                    switchColor("#262626");
                     localStorage.setItem("theme", "light");
                 } else if (element.dataset.theme === "light") {
                     element.dataset.theme = "dark";
+                    switchColor("fff");
                     localStorage.setItem("theme", "dark")
                 }
             }
@@ -63,15 +59,15 @@
 
 
     <main>
-        <section>
+        <section class="hero">
             <div class="profile-container">
                 <img src="img/najmul.webp" alt="Najmul Huda Profile">
             </div>
-            <div>
+            <div class="hero__title">
                 <h1>Hey, I'm Najmul <span class="mobile">Huda (Wahid)</span> <span class="wave">👋</span></h1>
-                <p>Saham, North Al Batinah, Sultanate of Oman</p>
+                <p class="f2">Saham, <span class="nowrap">North Al Batinah,</span> <span class="nowrap">Sultanate of Oman</span></p>
             </div>
-            <p>I'm a passionate web developer. I craft fast, responsive websites and web applications with sleek design.</p>
+            <p class="hero__desc">I'm a passionate web developer. I craft fast, responsive websites and web applications with sleek design.</p>
         </section>
 
         <div class="container">
@@ -109,7 +105,7 @@
                 </a>
                 <a href="https://flask.palletsprojects.com/en/stable/" target="_blank" title="Python Web Framework">
                     <div class="stack-icon glassy flask">
-                        <img src="img/flask.png" alt="" loading="lazy">
+                        <img src="img/flask2.png" alt="" loading="lazy">
                         <p>Flask</p>
                     </div>
                 </a>
@@ -127,6 +123,66 @@
                 </a>
             </section>
         </div>
+        <section class="project-cards">
+            <h2>Recent Projects</h2>
+
+            <a href="https://salah-time.com"  target="_blank">
+                <article class="card glassy">
+                    <div class="card-img-div">
+                        <img src="img/salah_time.webp" alt="" loading="lazy">
+                    </div>
+                    <div class="card-texts">
+                        <h3>Salah-Time.com</h3>
+                        <p>Salah Time is a browser extension which shows the daily Muslim Prayer local time. It is highly configurable allowing User to set/change location automatically or manually. And it also allows the user to fine-tune/offset prayer times and set prayer time calculation method.</p>
+                    </div>
+                </article>
+            </a>
+
+            <a href="https://fyabr.com" target="_blank">
+                <article class="card glassy">
+                    <div class="card-img-div">
+                        <img src="img/fyabr.webp" alt="" loading="lazy">
+                    </div>
+                    <div class="card-texts">
+                        <h3>FYABR.com</h3>
+                        <p>A sleek landing page for FYABR Investment firm.</p>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/projects">More projects</a>
+        </section>
+
+        <section class="project-cards">
+            <h2>My Services</h2>
+
+            <a href="https://salah-time.com"  target="_blank">
+                <article class="card glassy">
+                    <div class="card-img-div">
+                        <img src="img/salah_time.webp" alt="" loading="lazy">
+                    </div>
+                    <div class="card-texts">
+                        <h3>Salah-Time.com</h3>
+                        <p>Salah Time is a browser extension which shows the daily Muslim Prayer local time. It is highly configurable allowing User to set/change location automatically or manually. And it also allows the user to fine-tune/offset prayer times and set prayer time calculation method.</p>
+                    </div>
+                </article>
+            </a>
+
+            <a href="https://fyabr.com" target="_blank">
+                <article class="card glassy">
+                    <div class="card-img-div">
+                        <img src="img/fyabr.webp" alt="" loading="lazy">
+                    </div>
+                    <div class="card-texts">
+                        <h3>FYABR.com</h3>
+                        <p>A sleek landing page for FYABR Investment firm.</p>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/projects">More projects</a>
+        </section>
+
     </main>
 
 
@@ -178,9 +234,30 @@
     <!-- Background Particle Effect -->
     <div id="particles-js" class="particles-js"></div>
     <script>
+        const setTheme = localStorage.getItem("theme");
+
+        let particlesColor = "#fff";
+
+        if (setTheme) {
+            const themeBtn = document.querySelector("[data-theme]");
+            themeBtn.dataset.theme = setTheme;
+
+            particlesColor = (setTheme === "light") ? "#262626" : "#fff";
+        }
+
+        const config = {"particles":{"number":{"value":50,"density":{"enable":false,"value_area":1600}},"color":{"value":particlesColor},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":1,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":4,"size_min":0.3,"sync":false}},"line_linked":{"enable":false,"distance":150,"color":particlesColor,"opacity":0.4,"width":1},"move":{"enable":true,"speed":1,"direction":"none","random":true,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":600}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"grab"},"onclick":{"enable":true,"mode":"repulse"},"resize":true},"modes":{"grab":{"distance":85,"line_linked":{"opacity":1}},"bubble":{"distance":250,"size":0,"duration":2,"opacity":0.5,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true};
+
+
+        const switchColor = (color) => {
+            config.particles.color.value = color;
+            config.particles.line_linked.color = color;
+
+            particlesJS('particles-js', config);
+        }
+
         document.addEventListener("DOMContentLoaded", () => {
             /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-            particlesJS.load('particles-js', 'js/particles.json');
+            particlesJS('particles-js', config);
         });
     </script>
     <!-- END - Background Particle Effect -->
