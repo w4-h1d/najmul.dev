@@ -79,16 +79,15 @@
 
         body {
             font-family: "Montserrat", sans-serif;
-            /* background: radial-gradient(ellipse at bottom,  oklch(0.29 0.1175 282.02) 0%,  oklch(15.09% 0.0109 276.17) 100%);
-
-            background: radial-gradient(ellipse at bottom, oklch(var(--light1) var(--chroma1) var(--hue1)) 0%, oklch(var(--light2) var(--chroma2) var(--hue2)) 100%); */
-
             background: radial-gradient(ellipse at bottom, var(--inner-color) 0%, var(--outer-color) 100%);
-
-            
             color: #fff;
             min-height: 100vh;
+            min-height: 100svh;
             animation: background-gradient 3s linear forwards;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
         }
 
         .sun {
@@ -133,6 +132,7 @@
 
         main {
             padding: 1rem;
+            margin-top: -5rem;
         }
 
         footer {
@@ -145,9 +145,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 75vh;
             gap: 0.5rem;
-            
+            margin: 0 0 5rem;
         }
 
         .eid-text {
@@ -221,7 +220,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-            particlesJS.load('particles-js', '/js/particles.json');
+            particlesJS.load('particles-js', '/js-non_minified/particles.json');
         });
     </script>
 

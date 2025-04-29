@@ -232,6 +232,11 @@ header, main, footer {
     width: 50px;
     height: 50px;
     place-items: center;
+    transition: opacity 0.35s;
+}
+
+.theme-btn:hover {
+    opacity: 0.65;
 }
 
 .theme-btn img {
@@ -475,6 +480,7 @@ a:hover:has(> .card) {
     margin: 1.25rem 0;
 }
 
+
 .project-cards > a:not(a:has(> .card))::after {
     content: "→";
     margin-left: 1ch;
@@ -528,6 +534,10 @@ a:hover:has(> .card) {
     font-size: 0.9rem;
     color: oklch(from var(--font-color2) calc(l - 0.05) c h);
     /* text-wrap: pretty; */
+}
+
+.services-cards {
+    display: flex;
 }
 
 @container card (width < 576px) {
