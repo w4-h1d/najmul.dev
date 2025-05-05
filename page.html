@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Najmul Huda</title>
-    <link rel="icon" type="image/x-icon" href="/img/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="img/favicon.svg">
     <link rel="preload" href="/img/najmul2.webp" as="image" type="image/webp">
     <script src="js/particles.js"></script>
     <link rel="stylesheet" href="css/index.css">
@@ -33,9 +33,9 @@
                 
         <nav>
             <ul> 
-                <li><a href="#">Blog</a></li>
+                <!-- <li><a href="#">Blog</a></li> -->
                 <li><a href="#">Projects</a></li>
-                <li><a href="#">Services</a></li>
+                <li><a href="#services">Services</a></li>
                 <li><button type="button"  class="theme-btn" data-theme="dark" onclick="switchTheme(this)">
                     <img src="img/theme-icon-dark.svg" alt="theme button dark icon" class="dark-icon">
                     <img src="img/theme-icon-light.svg" alt="theme button light icon" class="light-icon">
@@ -55,6 +55,7 @@
                     localStorage.setItem("theme", "dark")
                 }
             }
+            
         </script>
     </header>
 
@@ -130,8 +131,12 @@
 
             <a href="https://salah-time.com"  target="_blank">
                 <article class="card glassy">
-                    <div class="card-img-div">
-                        <img src="img/salah_time.webp" alt="" loading="eager" width="585" height="313">
+                    <div class="card-img-div salah-time">
+                        <video poster="img/salah_time.webp" autoplay width="585" height="324" loop muted>
+                            <source src="video/salah-time_promo_256p.mp4" type="video/mp4" media="(min-width:577px)">
+                            <source src="video/salah-time_promo_576p.mp4" type="video/mp4" media="(max-width:576px)">
+                        </video>
+                        <img src="img/salah_time.webp" alt="" loading="eager" width="585" height="329">
                     </div>
                     <div class="card-texts">
                         <h3>Salah-Time.com (Website & Browser Extension)</h3>
@@ -179,26 +184,26 @@
             <a href="/projects">More projects</a>
         </section>
 
-        <section>
+        <section id="services">
             <h2>My Services</h2>
 
             <div class="services-cards">
-                <article class="glassy">
+                <article class="">
                     <h3>Starter Package</h3>
                     <p>Build a unique website to stand out from the crowd</p>
 
                     <p>75 OMR</p>
                     <ul>
-                        <li>Custom Static Website</li>
+                        <li>Custom Static Website (3 Pages)</li>
                         <li>Mobile-friendly design</li>
                         <li>No hosting</li>
-                        <li>No domain </li>
+                        <li>No domain</li>
                     </ul>
 
                     <p></p>
                 </article>
 
-                <article class="glassy">
+                <article class="">
                     <h3>Premium Package</h3>
                     <p>Build a unique website to stand out from the crowd</p>
 
@@ -216,7 +221,7 @@
                     <p></p>
                 </article>
 
-                <article class="glassy">
+                <article class="">
                     <h3>Elite Package</h3>
                     <p>Build a unique website to stand out from the crowd</p>
 

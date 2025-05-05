@@ -44,7 +44,7 @@
     box-sizing: border-box;
 }
 
-img {
+img, video {
     display: block;
     max-width: 100%;
 }
@@ -108,7 +108,6 @@ img {
     transform: translateY(0) translateZ(0);;
 }
 
-
 .glassy:hover {
     background-color: var(--glassy-hover);
 }
@@ -131,6 +130,17 @@ img {
 
 .f2 {
     color: var(--font-color2);
+}
+
+.fade {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s, transform 1s;
+}
+
+.fadein {
+    opacity: 1;
+    transform: translateY(0);
 }
 /* END OF UTILITY CLASSES */
 
@@ -193,6 +203,8 @@ header, main, footer {
     max-width: 864px;
     margin: 0 auto;
     padding: 1rem;
+    z-index: 1;
+    position: relative;
 }
 /* END OF GENERAL HTML */
 
@@ -511,7 +523,7 @@ a:hover:has(> .card) {
     width: 250px;
 }
 
-.card img {
+.card img, video {
     width: 250px;
     height: auto;
     transition: transform 0.35s;
@@ -536,16 +548,36 @@ a:hover:has(> .card) {
     /* text-wrap: pretty; */
 }
 
+.salah-time {
+    display: grid;
+    grid-template-areas: "icon";
+}
+
+.salah-time > * {
+    grid-area: icon;
+}
+
+
+.card:has(.salah-time) img {
+    opacity: 0;
+    transition: opacity 0.35s;
+}
+.card:has(.salah-time):hover img {
+    opacity: 1;
+}
+
 .services-cards {
     display: flex;
 }
 
-@container card (width < 576px) {
+
+
+@container card (width < 531px) {
     .card {
         flex-flow: column;
         gap: 0.5rem;
     }
-    .card-img-div, .card img {
+    .card-img-div, .card img, .card video {
         width: 100%;
         height: auto;
     }
