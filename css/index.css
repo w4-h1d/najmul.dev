@@ -201,6 +201,7 @@ header, main, footer {
 
 .wrapper {
     max-width: 864px;
+    max-width: 54rem;
     margin: 0 auto;
     padding: 1rem;
     z-index: 1;
@@ -241,8 +242,8 @@ header, main, footer {
 .theme-btn {
     display: grid;
     grid-template-areas: "icon";
-    width: 50px;
-    height: 50px;
+    width: 3.125rem;
+    height: 3.125rem;
     place-items: center;
     transition: opacity 0.35s;
 }
@@ -281,7 +282,7 @@ nav > .theme-btn {
     display: none;
 }
 
-@container nav-layout (width < 275px) {
+@container nav-layout (width < 17.1875rem) {
     .header nav ul {
         gap: 0;
     }
@@ -291,8 +292,8 @@ nav > .theme-btn {
     }
 
     .theme-btn {
-        width: 36px;
-        height: 36px;
+        width: 2.25rem;
+        height: 2.25rem;
     }
 
 }
@@ -310,7 +311,7 @@ nav > .theme-btn {
     flex-wrap: wrap;
 }
 
-@container footer-layout (width < 434px) {
+@container footer-layout (width < 27.125rem) {
     .footer {
         justify-content: center;
     }
@@ -339,8 +340,8 @@ footer p {
 
 .socials svg {
     display: block;
-    width: 20px;
-    height: 20px; 
+    width: 1.25rem;
+    height: 1.25rem; 
 }
 /* END OF Footer*/
 
@@ -429,7 +430,9 @@ a:has(.stack-icon) {
 
 .stack-icon {
     width: 90px;
+    width: 5.625rem;
     height: 75px;
+    height: 4.6875rem;
     padding: 10px;
     border-radius: 5px;
     place-content: center;  
@@ -443,7 +446,7 @@ a:has(.stack-icon) {
 
 .stack-icon img {
     margin: 0 auto;
-    height: 25px;
+    height: 1.5625rem;
     width: auto;
     transition: transform 0.35s, filter 0.35s;
     transform-origin: center;
@@ -459,13 +462,6 @@ a:has(.stack-icon) {
     transform: scale(0.95); 
 }
 
-/* .stack-icon.flask img {
-    filter: contrast(0.35);   
-}
-
-.stack-icon.flask:hover img {
-    filter: contrast(1);     
-} */
 
 h2 {
     font-size: 1rem;
@@ -520,11 +516,11 @@ a:hover:has(> .card) {
     object-fit: cover;
     border-radius: 5px;
     overflow: hidden;
-    width: 250px;
+    width: 15.625rem;
 }
 
 .card img, video {
-    width: 250px;
+    width: 15.625rem;
     height: auto;
     transition: transform 0.35s;
 }
@@ -572,7 +568,7 @@ a:hover:has(> .card) {
 
 
 
-@container card (width < 531px) {
+@container card (width < 33.1875rem) {
     .card {
         flex-flow: column;
         gap: 0.5rem;
@@ -627,7 +623,7 @@ a:hover:has(> .card) {
     } */
 }
 
-@media screen and (width < 880px) {
+@media screen and (width < 55rem) {
     .tech {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
