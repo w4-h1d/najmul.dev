@@ -54,6 +54,8 @@ img, video {
 
 /* COLOR variables */
 :root {
+    color-scheme: dark;
+
     --html-bg: oklch(13% 0.028 261.692);
     --bg-grad-center: oklch(28.2% 0.065 267.935);
     --bg-grad-edges: oklch(13% 0.028 261.692);
@@ -67,14 +69,18 @@ img, video {
     --h2-bg: oklch(0.29 0.055 267.935);
     --h2-color: oklch(from var(--font-color) calc(l - 0.05) c h);
 
-    --glassy-bg: hsla(0, 0%, 100%, 0.025);
+    --glassy-bg: oklch(0.2493 0.0395 261.692 / 70%);
     --glassy-shadow-col: rgba(0, 0, 0, 0.25);
-    --glassy-hover: hsl(from var(--glassy-bg) h s l / 0.1);
-    --glassy-active: hsl(from var(--glassy-bg) h s l / 0.05);
+    --glassy-hover: oklch(from var(--glassy-bg) 0.2145 c h / 80%);
+    --glassy-active: oklch(from var(--glassy-bg) l c h / 25%);
+
+    scrollbar-color: var(--font-color) var(--bg-grad-edges);
 }
 /*END OF COLOR variables */
 
 :root:has([data-theme="light"]) {
+    color-scheme: light;
+    
     --font-color: oklch(27% 0 0);
     --font-color2: oklch(42% 0 0);
     --bg-grad-center: oklch(97% 0.014 254.604);
@@ -90,6 +96,8 @@ img, video {
     --glassy-shadow-col: rgba(0, 0, 0, 0.2);
     --glassy-hover: oklch(from var(--h2-bg) calc(l - 0.1) calc(c - 0.01) h / 0.5);
     --glassy-active: hsl(from var(--glassy-bg) h s l / 0.05);
+
+    
 }
 
 /* UTILITY CLASSES [Re-Usable Classes]*/
@@ -99,9 +107,12 @@ img, video {
     left: -1000px;
 }
 
+/* .blur {
+    backdrop-filter: blur(2px);
+} */
+
 .glassy {
     border: 1px solid var(--border-color);
-    backdrop-filter: blur(2px);
     background-color: var(--glassy-bg);
     box-shadow: 0px 4px 5px var(--glassy-shadow-col);
     transition: background-color 0.35s, box-shadow 0.35s, transform 0.35s;
@@ -562,6 +573,10 @@ a:hover:has(> .card) {
     opacity: 1;
 }
 
+.card:has(.salah-time):active img {
+    opacity: 0;
+}
+
 .services-cards {
     display: flex;
 }
@@ -598,7 +613,7 @@ a:hover:has(> .card) {
 }
 
 @media screen and (width < 576px) {
-    :root {
+/*     :root {
         --glassy-bg: oklch(0.22 0.04 264.93 / 90%);
         --glassy-hover: hsl(from var(--glassy-bg) h s l / 0.1);
         --glassy-active: hsl(from var(--glassy-bg) h s l / 0.05);
@@ -606,7 +621,7 @@ a:hover:has(> .card) {
     
     :root:has([data-theme="light"]) {
         --glassy-bg: oklch(97% 0.014 254.604 / 90%);
-    }
+    } */
 
     .mobile { display: none; }
 
