@@ -104,7 +104,7 @@ img, video {
 .offscreen {
     position: absolute;
     top: 0;
-    left: -1000px;
+    left: -10000px;
 }
 
 /* .blur {
