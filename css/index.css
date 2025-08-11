@@ -518,7 +518,47 @@ a:hover:has(> .card) {
     border-radius: 10px;
     justify-content: flex-start;
     align-items: flex-start;
+    width: 100%;
 }
+
+.card-slider {
+    display: flex;
+    flex-flow: row nowrap;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 1rem;
+    place-content: center flex-start;
+}
+
+.project-cards-v2 .card {
+    flex-flow: column nowrap;
+    padding: 0;
+    filter: saturate(0);
+    transition: filter 0.5s;
+    border: none;
+}
+
+.project-cards-v2 a {
+    border-radius: 10px;
+/*     box-shadow: 0 0.1rem 1rem 10px rgba(0, 0, 0, 0.15); */
+    border: 1px solid var(--border-color);
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+
+.project-cards-v2 .card-img-div {
+    border: none;
+}
+
+
+
+.project-cards-v2 .card:hover {
+    filter: saturate(1);
+}
+
+
 
 
 
@@ -535,6 +575,12 @@ a:hover:has(> .card) {
     height: auto;
     transition: transform 0.35s;
 }
+
+.swiper-slide img, .swiper-slide .card-img-div{
+    width: 100%;
+}
+
+
 
 .card:hover img {
     transform: scale(1.025);
@@ -612,7 +658,7 @@ a:hover:has(> .card) {
     }
 }
 
-@media screen and (width < 576px) {
+@media screen and (width < 36rem) {
 /*     :root {
         --glassy-bg: oklch(0.22 0.04 264.93 / 90%);
         --glassy-hover: hsl(from var(--glassy-bg) h s l / 0.1);
