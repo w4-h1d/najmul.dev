@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Mr. Bombastic — Web Developer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    --bg:#F6F1E7;
+    --bg-card:#FFFFFF;
+    --ink:#241C14;
+    --ink-dim:#6B6255;
+    --accent:#C4622D;
+    --moss:#6B7455;
+    --line:#E4DBC9;
+    --radius:14px;
+  }
+  :root[data-theme="dark"]{
+    --bg:#211B16;
+    --bg-card:#2A231C;
+    --ink:#F2EAD9;
+    --ink-dim:#B0A491;
+    --accent:#E08A52;
+    --moss:#9CA97C;
+    --line:#3A322A;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.65;
+    transition:background 0.25s ease, color 0.25s ease;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2{font-family:'Fraunces', serif;}
+  a{color:inherit;}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- NAV ---------- */
+  nav{padding:28px 0;}
+  nav .wrap{display:flex; justify-content:space-between; align-items:center;}
+  .nav-link{
+    font-size:0.95rem;
+    color:var(--ink-dim);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+  }
+  .nav-link:hover{border-color:var(--accent); color:var(--ink);}
+
+  .theme-btn{
+    width:38px; height:38px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    background:var(--bg-card);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+  }
+  .theme-btn svg{width:18px; height:18px; stroke:var(--ink);}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:36px 0 56px; text-align:center;}
+  .avatar{
+    width:132px; height:132px;
+    margin:0 auto 26px;
+    border-radius:50%;
+    background:var(--bg-card);
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .avatar svg{width:120%; height:120%;}
+
+  .hero h1{
+    font-size:clamp(1.9rem, 4vw, 2.5rem);
+    font-weight:700;
+    margin-bottom:14px;
+  }
+  .hero .wave{display:inline-block;}
+
+  .location{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:0.92rem;
+    color:var(--ink-dim);
+    margin-bottom:20px;
+  }
+  .location svg{width:14px; height:14px; stroke:var(--accent); flex-shrink:0;}
+
+  .bio{
+    color:var(--ink-dim);
+    max-width:52ch;
+    margin:0 auto;
+    font-size:1.02rem;
+  }
+
+  /* ---------- STACK ---------- */
+  .stack-section{padding:8px 0 56px; text-align:center;}
+  .stack-section h2{
+    font-size:0.85rem;
+    letter-spacing:0.02em;
+    color:var(--ink-dim);
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    margin-bottom:18px;
+  }
+  .pills{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+  }
+  .pill{
+    padding:8px 16px;
+    border-radius:20px;
+    border:1px solid var(--line);
+    background:var(--bg-card);
+    font-size:0.88rem;
+    color:var(--ink);
+    text-decoration:none;
+  }
+  .pill:hover{border-color:var(--accent); color:var(--accent);}
+
+  /* ---------- PROJECTS ---------- */
+  .projects-section{padding:8px 0 64px;}
+  .projects-section h2{
+    text-align:center;
+    font-size:1.5rem;
+    margin-bottom:32px;
+  }
+  .project-list{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+  .project-card{
+    display:grid;
+    grid-template-columns:96px 1fr;
+    gap:20px;
+    padding:20px;
+    background:var(--bg-card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    text-decoration:none;
+    color:var(--ink);
+    align-items:center;
+  }
+  .project-card:hover{border-color:var(--accent);}
+  .project-thumb{
+    width:96px; height:96px;
+    border-radius:10px;
+    background:var(--bg);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .project-thumb svg{width:60%; height:60%;}
+  .project-body h3{
+    font-family:'Fraunces', serif;
+    font-size:1.15rem;
+    font-weight:700;
+    margin-bottom:6px;
+  }
+  .project-body p{
+    color:var(--ink-dim);
+    font-size:0.92rem;
+  }
+
+  .more-link{
+    display:block;
+    text-align:center;
+    margin-top:26px;
+    font-size:0.95rem;
+    color:var(--accent);
+    text-decoration:none;
+  }
+  .more-link:hover{text-decoration:underline;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:32px 0 48px;
+    text-align:center;
+  }
+  footer p{color:var(--ink-dim); font-size:0.85rem; margin-bottom:16px;}
+  .socials{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+  }
+  .socials a{
+    color:var(--ink-dim);
+    text-decoration:none;
+    font-size:0.85rem;
+  }
+  .socials a:hover{color:var(--accent);}
+
+  @media (max-width:520px){
+    .project-card{grid-template-columns:64px 1fr;}
+    .project-thumb{width:64px; height:64px;}
+  }
+
+  #particles{
+    position:fixed;
+    inset:0;
+    width:100vw;
+    height:100vh;
+    z-index:0;
+    background:transparent;
+  }
+  #particles canvas{
+    display:block;
+  }
+  nav, header, section, footer{
+    position:relative;
+    z-index:1;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    #particles{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<div id="particles"></div>
+
+<nav>
+  <div class="wrap">
+    <a href="#projects" class="nav-link">Projects</a>
+    <button class="theme-btn" id="themeToggle" aria-label="Toggle dark mode">
+      <svg id="iconMoon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="avatar">
+      <!-- Original fat rat illustration -->
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="100" fill="#EADFC7"/>
+        <ellipse cx="100" cy="128" rx="62" ry="46" fill="#9C8F78"/>
+        <circle cx="55" cy="75" r="18" fill="#9C8F78"/>
+        <circle cx="55" cy="75" r="9" fill="#C4622D"/>
+        <circle cx="120" cy="68" r="19" fill="#9C8F78"/>
+        <circle cx="120" cy="68" r="10" fill="#C4622D"/>
+        <ellipse cx="95" cy="110" rx="48" ry="38" fill="#C9BEA6"/>
+        <ellipse cx="60" cy="128" rx="26" ry="22" fill="#C9BEA6"/>
+        <ellipse cx="30" cy="128" rx="9" ry="7" fill="#2A2118"/>
+        <line x1="32" y1="122" x2="4" y2="112" stroke="#2A2118" stroke-width="2"/>
+        <line x1="30" y1="130" x2="2" y2="130" stroke="#2A2118" stroke-width="2"/>
+        <line x1="32" y1="138" x2="4" y2="146" stroke="#2A2118" stroke-width="2"/>
+        <circle cx="78" cy="100" r="6" fill="#2A2118"/>
+        <circle cx="80" cy="98" r="2" fill="#F6F1E7"/>
+        <ellipse cx="55" cy="120" rx="10" ry="6" fill="#C4622D" opacity="0.45"/>
+      </svg>
+    </div>
+    <h1>Hey, I'm Mr. Bombastic <span class="wave">👋</span></h1>
+    <div class="location">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Somewhere in a very large burrow
+    </div>
+    <p class="bio">I'm a full-stack developer who builds fast, reliable web apps and doesn't do anything small. I care about clean code, honest deadlines, and the occasional oversized side project.</p>
+  </div>
+</header>
+
+<section class="stack-section">
+  <div class="wrap">
+    <h2>Tech I work with</h2>
+    <div class="pills">
+      <a class="pill" href="#" title="TypeScript">TypeScript</a>
+      <a class="pill" href="#" title="React">React</a>
+      <a class="pill" href="#" title="Node.js">Node.js</a>
+      <a class="pill" href="#" title="PostgreSQL">PostgreSQL</a>
+      <a class="pill" href="#" title="Go">Go</a>
+      <a class="pill" href="#" title="Docker">Docker</a>
+      <a class="pill" href="#" title="Figma">Figma</a>
+    </div>
+  </div>
+</section>
+
+<section class="projects-section" id="projects">
+  <div class="wrap">
+    <h2>Recent Projects</h2>
+    <div class="project-list">
+      <a class="project-card" href="#">
+        <div class="project-thumb">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#C4622D" stroke-width="2.2"><rect x="6" y="10" width="36" height="26" rx="3"/><path d="M14 20h20M14 27h12"/></svg>
+        </div>
+        <div class="project-body">
+          <h3>CheeseTrack</h3>
+          <p>Inventory and expiry tracker for small cheese shops, with barcode scanning and reorder alerts.</p>
+        </div>
+      </a>
+      <a class="project-card" href="#">
+        <div class="project-thumb">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#C4622D" stroke-width="2.2"><circle cx="24" cy="24" r="16"/><path d="M24 16v8l6 4"/></svg>
+        </div>
+        <div class="project-body">
+          <h3>Warren</h3>
+          <p>A lightweight project management tool for small teams tired of bloated software.</p>
+        </div>
+      </a>
+      <a class="project-card" href="#">
+        <div class="project-thumb">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#C4622D" stroke-width="2.2"><path d="M8 36V16l12-8 12 8v20"/><path d="M8 36h24"/></svg>
+        </div>
+        <div class="project-body">
+          <h3>Gnaw</h3>
+          <p>A CLI tool that chews through large log files and surfaces anomalies in seconds.</p>
+        </div>
+      </a>
+      <a class="project-card" href="#">
+        <div class="project-thumb">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#C4622D" stroke-width="2.2"><rect x="8" y="8" width="32" height="32" rx="4"/><path d="M8 20h32"/></svg>
+        </div>
+        <div class="project-body">
+          <h3>Nestwork</h3>
+          <p>Self-hosted status page and uptime monitor for indie developers.</p>
+        </div>
+      </a>
+    </div>
+    <a href="#" class="more-link">More projects →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Mr. Bombastic. All rights reserved.</p>
+    <div class="socials">
+      <a href="#">GitHub</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Twitter</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  const btn = document.getElementById('themeToggle');
+  const root = document.documentElement;
+  const moonIcon = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+  const sunIcon = '<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>';
+  const iconEl = document.getElementById('iconMoon');
+
+  function applyTheme(theme){
+    if(theme === 'dark'){
+      root.setAttribute('data-theme', 'dark');
+      iconEl.innerHTML = sunIcon;
+    } else {
+      root.setAttribute('data-theme', 'light');
+      iconEl.innerHTML = moonIcon;
+    }
+  }
+
+  let saved = 'light';
+  try{
+    if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+      saved = 'dark';
+    }
+  }catch(e){}
+  applyTheme(saved);
+
+  btn.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+
+  // ---------- particles.js background ----------
+  function particleColorFor(theme){
+    return theme === 'dark' ? '#E08A52' : '#C4622D';
+  }
+
+  function initParticles(theme){
+    if(typeof particlesJS === 'undefined') return;
+    particlesJS('particles', {
+      particles: {
+        number: { value: 55, density: { enable: true, value_area: 800 } },
+        color: { value: particleColorFor(theme) },
+        shape: { type: 'circle' },
+        opacity: { value: 0.35, random: true, anim: { enable: true, speed: 0.4, opacity_min: 0.1, sync: false } },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 140, color: particleColorFor(theme), opacity: 0.15, width: 1 },
+        move: { enable: true, speed: 0.6, direction: 'top', random: true, straight: false, out_mode: 'out' }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: { enable: true, mode: 'grab' },
+          onclick: { enable: false },
+          resize: true
+        },
+        modes: {
+          grab: { distance: 140, line_linked: { opacity: 0.3 } }
+        }
+      },
+      retina_detect: true
+    });
+  }
+
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduceMotion){
+    initParticles(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  }
+
+  // re-init particles with new color when theme toggles
+  const originalApplyTheme = applyTheme;
+  btn.addEventListener('click', () => {
+    if(reduceMotion) return;
+    const theme = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    initParticles(theme);
+  });
+</script>
+
+</body>
+</html>
